@@ -1,0 +1,31 @@
+<!doctype HTML>
+<head>
+  <title>Welcome to the Internet</title>
+  <link rel="stylesheet" href="reset.css" media="screen" title="Reset" charset="utf-8">
+  <link rel="stylesheet" href="style.css" media="screen" title="mainStyleSheet" charset="utf-8">
+</head>
+
+<body>
+  <header>
+    <h1>Bookmark Bonanaza</h1>
+    <section id="inputSection">
+      <p>To add a website to the collection, enter a title and url in the fields below and click the plus button.</p>
+      <input type="text" name="titleInput" id="titleInput">
+      <input type="url" name="urlInput" id="urlInput">
+      <button type="button" name="addButton" id="addButton">+</button>
+    </section>
+    <p id="errorPrompt"></p>
+    <nav>
+      <button type="button" name="totalBookmarksButton" id="totalBookmarksButton">All(#)</button>
+      <button type="button" name="readBookmarksButton" id="readBookmarksButton">Read(#)</button>
+      <button type="button" name="unreadBookmarksButton" id="unreadBookmarksButton">Unread(#)</button>
+    </nav>
+    <button type="button" name="clearReadBookmarks" id="clearReadBookmarks">Clear Read Bookmarks</button>
+  </header>
+
+  <main id="bookmarkCollection"></main>
+  <footer>
+    <p>A Lancaster-Allen Creation.</p>
+  </footer>
+<script src="scripts.js"></script>
+</body>

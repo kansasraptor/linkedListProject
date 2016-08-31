@@ -7,7 +7,8 @@ var $readBookmarksButton = $('#readBookmarksButton');
 var $unreadBookmarksButton = $('#unreadBookmarksButton');
 var $clearReadBookmarksButton = $('#clearReadBookmarksButton');
 var $bookmarkCollection = $('#bookmarkCollection');
-var $bookmarkReadCheckbox = $('.bookmarkReadCheckbox')
+var $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
+var $removeBookmarkButton = $('.removeBookmarkButton');
 
 $addButton.on('click', function() {
   var titleInputValue = $titleInput.val();
@@ -17,10 +18,20 @@ $addButton.on('click', function() {
   $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
 })
 
-$('figure').on('change', $bookmarkReadCheckbox, function() {
+$('main').find('figure').on('change', $bookmarkReadCheckbox, function() {
   if ($(this).find('.bookmarkReadCheckbox').is(':checked')){
         $(this).addClass('read')
         } else {
         $(this).removeClass('read')
         }
+});
+
+// $('figure').on('click', $removeBookmarkButton, function() {
+//   console.log('ping')
+//   $(this).remove()
+// });
+
+$('main').find('.removeBookmarkButton').on('click', function() {
+  console.log('ping')
+  $(this).parent().remove()
 });

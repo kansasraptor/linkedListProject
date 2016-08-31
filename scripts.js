@@ -17,13 +17,10 @@ $addButton.on('click', function() {
   $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
 })
 
-// investigate event delegation
-// $bookmarkReadCheckbox.on('click', "input", function(event) {
-$('body').on('change', $bookmarkReadCheckbox, function() {
-  console.log('ping')
-  // if(this.checked) {
-  //   this.parent().addClass('read')
-  // } else {
-  //   this.parent().removeClass('read')
-  // }
+$('figure').on('change', $bookmarkReadCheckbox, function() {
+  if ($(this).find('.bookmarkReadCheckbox').is(':checked')){
+        $(this).addClass('read')
+        } else {
+        $(this).removeClass('read')
+        }
 });

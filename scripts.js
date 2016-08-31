@@ -20,12 +20,6 @@ function clearInputFields() {
   $urlInput.val('');
 };
 
-// $inputSection.on('keyup', 'input', function() {
-//   if ($titleInput.val() === '' || $urlInput.val() === '') {
-//     $addButton.prop('disabled', true)
-//   } else {
-//     $addButton.prop('disabled', false)
-// }});
 
 $inputSection.on('keyup', 'input', function() {
   if ($titleInput.val() && $urlInput.val() ) {
@@ -55,8 +49,24 @@ $addButton.on('click', function() {
   updateReadStatusCount();
 }})
 
+$totalBookmarksButton.on('click', function() {
+  $('.bookmark').css({'display' : 'inline-block'})
+});
+
+$readBookmarksButton.on('click', function() {
+  $('.bookmark').css({'display' : 'none'})
+  $('.read').css({'display' : 'inline-block'})
+});
+
+$unreadBookmarksButton.on('click', function() {
+  $('.bookmark').css({'display' : 'none'})
+  $('.unread').css({'display' : 'inline-block'})
+});
+
+
 $clearReadBookmarksButton.on('click', function() {
-  $('.read').remove()
+  $('.read').remove();
+  updateReadStatusCount();
 });
 
 $bookmarkCollection.on('change', '.bookmarkReadCheckbox', function() {

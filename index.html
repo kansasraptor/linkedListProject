@@ -8,17 +8,17 @@
 <body>
   <header>
     <h1>Bookmark Bonanaza</h1>
-    <section id="inputSection">
+    <form id="inputSection">
       <p>To add a website to the collection, enter a title and url in the fields below and click the plus button.</p>
-      <input type="text" name="titleInput" id="titleInput">
-      <input type="url" name="urlInput" id="urlInput">
-      <button type="button" name="addButton" id="addButton" disabled="true">+</button>
-    </section>
+      <input type="text" name="titleInput" id="titleInput" placeholder="Enter bookmark title.">
+      <input type="url" name="urlInput" id="urlInput" placeholder="Enter bookmark URL">
+      <button type="submit" name="addButton" id="addButton" disabled="true">+</button>
+    </form>
     <p id="errorPrompt"></p>
     <nav>
-      <button type="button" name="totalBookmarksButton" id="totalBookmarksButton">All(#)</button>
-      <button type="button" name="readBookmarksButton" id="readBookmarksButton">Read(#)</button>
-      <button type="button" name="unreadBookmarksButton" id="unreadBookmarksButton">Unread(#)</button>
+      <button type="button" name="totalBookmarksButton" id="totalBookmarksButton">All(0)</button>
+      <button type="button" name="readBookmarksButton" id="readBookmarksButton">Read(0)</button>
+      <button type="button" name="unreadBookmarksButton" id="unreadBookmarksButton">Unread(0)</button>
     </nav>
     <button type="button" name="clearReadBookmarksButton" id="clearReadBookmarksButton">Clear Read Bookmarks</button>
   </header>

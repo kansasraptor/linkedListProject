@@ -18,8 +18,8 @@ $addButton.on('click', function() {
 })
 
 // investigate event delegation
-$bookmarkReadCheckbox.on('click', function() {
-// $bookmarkReadCheckbox.change( function() {
+// $bookmarkReadCheckbox.on('click', "input", function(event) {
+$('body').on('change', $bookmarkReadCheckbox, function() {
   console.log('ping')
   // if(this.checked) {
   //   this.parent().addClass('read')

@@ -48,8 +48,8 @@ $('main').on('click','.removeBookmarkButton', function() {
 
 //on keyup in either input field, check if either is != to "", if true enable, else disable
 $inputSection.on('keyup', 'input', function() {
-  if ($titleInput.val() != '' || $urlInput.val() != '') {
-    $addButton.prop('disabled', false)
-  } else {
+  if ($titleInput.val() === '' || $urlInput.val() === '') {
     $addButton.prop('disabled', true)
+  } else {
+    $addButton.prop('disabled', false)
 }});

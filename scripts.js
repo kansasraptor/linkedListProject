@@ -1,6 +1,7 @@
 var $titleInput = $('#titleInput');
 var $urlInput = $('#urlInput');
 var $addButton = $('#addButton');
+var $inputSection = $('#inputSection');
 var $errorPrompt = $('#errorPrompt');
 var $totalBookmarksButton = $('#totalBookmarksButton');
 var $readBookmarksButton = $('#readBookmarksButton');
@@ -14,6 +15,11 @@ function clearErrors() {
   $errorPrompt.text('')
 };
 
+function clearInputFields() {
+  $titleInput.val('');
+  $urlInput.val('');
+};
+
 $addButton.on('click', function() {
   var titleInputValue = $titleInput.val();
   var urlInputValue = $urlInput.val();
@@ -24,6 +30,8 @@ $addButton.on('click', function() {
   $bookmarkCollection.prepend(bookmark);
   $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
   clearErrors();
+  clearInputFields();
+  $addButton.prop('disabled', true);
 }})
 
 $('main').on('change', '.bookmarkReadCheckbox', function() {
@@ -37,3 +45,11 @@ $('main').on('change', '.bookmarkReadCheckbox', function() {
 $('main').on('click','.removeBookmarkButton', function() {
   $(this).parent().remove()
 });
+
+//on keyup in either input field, check if either is != to "", if true enable, else disable
+$inputSection.on('keyup', 'input', function() {
+  if ($titleInput.val() != '' || $urlInput.val() != '') {
+    $addButton.prop('disabled', false)
+  } else {
+    $addButton.prop('disabled', true)
+}});

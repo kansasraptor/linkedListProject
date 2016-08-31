@@ -20,12 +20,18 @@ function clearInputFields() {
   $urlInput.val('');
 };
 
+// $inputSection.on('keyup', 'input', function() {
+//   if ($titleInput.val() === '' || $urlInput.val() === '') {
+//     $addButton.prop('disabled', true)
+//   } else {
+//     $addButton.prop('disabled', false)
+// }});
+
 $inputSection.on('keyup', 'input', function() {
-  if ($titleInput.val() === '' || $urlInput.val() === '') {
-    $addButton.prop('disabled', true)
-  } else {
+  if ($titleInput.val() && $urlInput.val() ) {
     $addButton.prop('disabled', false)
 }});
+
 
 function updateReadStatusCount() {
   $readBookmarksButton.text('Read(' + $('.read').length + ')');
@@ -46,16 +52,19 @@ $addButton.on('click', function() {
   clearErrors();
   clearInputFields();
   $addButton.prop('disabled', true);
+  updateReadStatusCount();
 }})
 
-$('main').on('change', '.bookmarkReadCheckbox', function() {
+$bookmarkCollection.on('change', '.bookmarkReadCheckbox', function() {
   if ($(this).is(':checked')){
         $(this).parent().addClass('read')
         } else {
         $(this).parent().removeClass('read')
         }
+  updateReadStatusCount();
 });
 
 $('main').on('click','.removeBookmarkButton', function() {
-  $(this).parent().remove()
+  $(this).parent().remove();
+  updateReadStatusCount();
 });

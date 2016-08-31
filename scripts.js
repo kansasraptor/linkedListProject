@@ -18,20 +18,14 @@ $addButton.on('click', function() {
   $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
 })
 
-$('main').find('figure').on('change', $bookmarkReadCheckbox, function() {
-  if ($(this).find('.bookmarkReadCheckbox').is(':checked')){
-        $(this).addClass('read')
+$('main').on('change', '.bookmarkReadCheckbox', function() {
+  if ($(this).is(':checked')){
+        $(this).parent().addClass('read')
         } else {
-        $(this).removeClass('read')
+        $(this).parent().removeClass('read')
         }
 });
 
-// $('figure').on('click', $removeBookmarkButton, function() {
-//   console.log('ping')
-//   $(this).remove()
-// });
-
-$('main').find('.removeBookmarkButton').on('click', function() {
-  console.log('ping')
+$('main').on('click','.removeBookmarkButton', function() {
   $(this).parent().remove()
 });

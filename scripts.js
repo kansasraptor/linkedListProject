@@ -11,15 +11,6 @@ var $bookmarkCollection = $('#bookmarkCollection');
 var $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
 var $removeBookmarkButton = $('.removeBookmarkButton');
 
-function clearErrors() {
-  $errorPrompt.text('')
-};
-
-function clearInputFields() {
-  $titleInput.val('');
-  $urlInput.val('');
-};
-
 $inputSection.on('keyup', 'input', function() {
   if ($titleInput.val() && $urlInput.val() ) {
     $addButton.prop('disabled', false)
@@ -31,6 +22,15 @@ function updateReadStatusCount() {
   $readBookmarksButton.text('Read(' + $('.read').length + ')');
   $totalBookmarksButton.text('All(' + $('.bookmark').length + ')');
   $unreadBookmarksButton.text('Unread(' + ($('.bookmark').length-$('.read').length) + ')');
+};
+
+function clearErrors() {
+  $errorPrompt.text('')
+};
+
+function clearInputFields() {
+  $titleInput.val('');
+  $urlInput.val('');
 };
 
 function createBookmark(titleInputValue,urlInputValue) {

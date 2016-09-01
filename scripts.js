@@ -33,11 +33,12 @@ function updateReadStatusCount() {
   $unreadBookmarksButton.text('Unread(' + ($('.bookmark').length-$('.read').length) + ')');
 };
 
+
 //this function probably needs to be broken up
 $addButton.on('click', function() {
   var titleInputValue = $titleInput.val();
   var urlInputValue = $urlInput.val();
-  var bookmark = $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL">' + urlInputValue + '</p><div class="checkboxContainer"><input type="checkbox" class="bookmarkReadCheckbox">Read</input><button type="button" class="removeBookmarkButton">Remove</button></figure></div>');
+  var bookmark = $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL">' + urlInputValue + '</p><div class="checkboxContainer"><input type="checkbox" class="bookmarkReadCheckbox">Read</input></div><button type="button" class="removeBookmarkButton">Remove</button></figure>');
   if(titleInputValue === "" || urlInputValue === "") {
     $errorPrompt.text('*Please fill in a bookmar title and url')
   } else {
@@ -71,11 +72,11 @@ $clearReadBookmarksButton.on('click', function() {
 
 $bookmarkCollection.on('change', '.bookmarkReadCheckbox', function() {
   if ($(this).is(':checked')){
-        $(this).parent().addClass('read')
-        $(this).parent().removeClass('unread')
+        $(this).parent().parent().addClass('read')
+        $(this).parent().parent().removeClass('unread')
         } else {
-        $(this).parent().removeClass('read')
-        $(this).parent().addClass('unread')
+        $(this).parent().parent().removeClass('read')
+        $(this).parent().parent().addClass('unread')
         }
   updateReadStatusCount();
 });

@@ -1,57 +1,107 @@
-#inputSection, nav, #bookmarkCollection, #clearReadBookmarksButton{
-  margin-left: 10%;
+body {
+  background-color: #FFFAD5;
+  font-family: 'Happy Monkey', cursive;
+
+}
+
+
+header {
+  background-color: #DB9E36;
+  text-align: center;
+  min-height: 20vh;
 }
 
 h1 {
-    font-size: 40px;
-    margin-bottom: 2%;
-    margin-top: 5%;
-    text-align: center;
-
+  font-size: 40px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
+
+header p {
+  padding-bottom: 15px;
+}
+
+input, button {
+  font-size: 18px;
+  font-family: 'Happy Monkey', cursive;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #105B63;
+  color: whitesmoke;
+}
+
+#addButton {
+  width: 30px;
+}
+
+nav {
+  display: inline-block;
+}
+
+#clearReadBookmarksButton {
+  margin-bottom: 15px;
+}
+
+main {
+  background-color: #FFFAD5;
+  min-height: 70vh;
+  background-image: url('images/monkey.jpg');
+  background-size: cover;
+}
+
 #bookmarkCollection{
-  background-color: magenta;
-  margin: 10% 10% 0 10%;
+  display: flex;
+  justify-content:space-around;
+  flex-wrap: wrap;
+  padding-bottom: 30px
 }
 
 .bookmark {
-  display: inline-flex;
-  flex-wrap: wrap;
-  height: 100px;
-  width: 100px;
-  background-color: thistle;
-  margin: 10px 10px 10px 10px;
+  width: 18%;
+  min-width: 200px;
+  background-color: #FFFAD5;
   overflow: hidden;
-  border-radius: 3px;
-  padding: 2px;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 14px;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  margin: 30px 15px 0px 15px;
+}
+
+.bookmark p {
+  padding: 10px 0 10px 0;
+}
+
+.checkboxContainer{
+  position:absolute;
+  left: 15px;
+  bottom: 17px;
+}
+
+.removeBookmarkButton {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-size: 14px;
+}
+
+
+footer {
+  min-height: 10vh;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-
-.bookmark h3, .bookmark p, {
-  font-size: 10px;
-  display: block;
-}
-
-
-p, nav, #inputSection, #clearReadBookmarksButton{
-  margin-bottom: 1%;
-}
-
-
-
-#addButton:hover{
-
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  position: fixed;
-  height: 5%;
-  width: 100vw;
-  background-color: gray;
-  text-align: inherit;
-
-
+@media (max-width:535px) {
+  .bookmark {
+    width: 90%;
+  }
 }

@@ -37,7 +37,7 @@ function updateReadStatusCount() {
 $addButton.on('click', function() {
   var titleInputValue = $titleInput.val();
   var urlInputValue = $urlInput.val();
-  var bookmark = $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL">' + urlInputValue + '</p><input type="checkbox" class="bookmarkReadCheckbox">Read</input><button type="button" class="removeBookmarkButton">Remove</button></figure>');
+  var bookmark = $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL">' + urlInputValue + '</p><div class="checkboxContainer"><input type="checkbox" class="bookmarkReadCheckbox">Read</input><button type="button" class="removeBookmarkButton">Remove</button></figure></div>');
   if(titleInputValue === "" || urlInputValue === "") {
     $errorPrompt.text('*Please fill in a bookmar title and url')
   } else {

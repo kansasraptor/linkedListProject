@@ -20,12 +20,12 @@ function clearInputFields() {
   $urlInput.val('');
 };
 
-
 $inputSection.on('keyup', 'input', function() {
   if ($titleInput.val() && $urlInput.val() ) {
     $addButton.prop('disabled', false)
+  } else {
+    $addButton.prop('disabled', true)
 }});
-
 
 function updateReadStatusCount() {
   $readBookmarksButton.text('Read(' + $('.read').length + ')');
@@ -33,22 +33,28 @@ function updateReadStatusCount() {
   $unreadBookmarksButton.text('Unread(' + ($('.bookmark').length-$('.read').length) + ')');
 };
 
+function createBookmark(titleInputValue,urlInputValue) {
+  return $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL"><a href="' + urlInputValue + '">' + urlInputValue + '</a></p><div class="checkboxContainer"><input type="checkbox" class="bookmarkReadCheckbox">Read</input></div><button type="button" class="removeBookmarkButton">Remove</button></figure>');
+}
 
-//this function probably needs to be broken up
+function promptError() {
+  $errorPrompt.text('*Please fill in a bookmark title and url');
+};
+
 $addButton.on('click', function() {
   var titleInputValue = $titleInput.val();
   var urlInputValue = $urlInput.val();
-  var bookmark = $('<figure class="bookmark unread"><h3 class="bookmarkTitle">' + titleInputValue + '</h3><p class="bookmarkURL">' + urlInputValue + '</p><div class="checkboxContainer"><input type="checkbox" class="bookmarkReadCheckbox">Read</input></div><button type="button" class="removeBookmarkButton">Remove</button></figure>');
+  var bookmark = createBookmark(titleInputValue,urlInputValue);
   if(titleInputValue === "" || urlInputValue === "") {
-    $errorPrompt.text('*Please fill in a bookmar title and url')
+    promptError();
   } else {
-  $bookmarkCollection.prepend(bookmark);
-  $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
-  clearErrors();
-  clearInputFields();
-  $addButton.prop('disabled', true);
-  updateReadStatusCount();
-}})
+    $bookmarkCollection.prepend(bookmark);
+    $bookmarkReadCheckbox = $('.bookmarkReadCheckbox');
+    clearErrors();
+    clearInputFields();
+    $addButton.prop('disabled', true);
+    updateReadStatusCount();
+}});
 
 $totalBookmarksButton.on('click', function() {
   $('.bookmark').css({'display' : 'inline-block'})
@@ -63,7 +69,6 @@ $unreadBookmarksButton.on('click', function() {
   $('.bookmark').css({'display' : 'none'})
   $('.unread').css({'display' : 'inline-block'})
 });
-
 
 $clearReadBookmarksButton.on('click', function() {
   $('.read').remove();

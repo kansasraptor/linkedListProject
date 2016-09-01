@@ -18,6 +18,11 @@ h1 {
   padding-bottom: 15px;
 }
 
+h3 {
+  font-size: 18px;
+  text-decoration:underline;
+}
+
 header p {
   padding-bottom: 15px;
 }
@@ -35,6 +40,10 @@ button {
 
 #addButton {
   width: 30px;
+}
+
+#addButton:disabled {
+  display: none;
 }
 
 nav {
@@ -71,6 +80,13 @@ main {
   padding: 15px;
   position: relative;
   margin: 30px 15px 0px 15px;
+  white-space: nowrap;
+/* how do we get this ellipsis to work? */  
+  text-overflow: ellipsis;
+}
+
+.read {
+  background-color: #BD4932;
 }
 
 .bookmark p {

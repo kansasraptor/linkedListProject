@@ -1,3 +1,57 @@
+#inputSection, nav, #bookmarkCollection, #clearReadBookmarksButton{
+  margin-left: 10%;
+}
+
 h1 {
     font-size: 40px;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    text-align: center;
+
+}
+#bookmarkCollection{
+  background-color: magenta;
+  margin: 10% 10% 0 10%;
+}
+
+.bookmark {
+  display: inline-flex;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 100px;
+  background-color: thistle;
+  margin: 10px 10px 10px 10px;
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 2px;
+  align-items: center;
+}
+
+
+.bookmark h3, .bookmark p, {
+  font-size: 10px;
+  display: block;
+}
+
+
+p, nav, #inputSection, #clearReadBookmarksButton{
+  margin-bottom: 1%;
+}
+
+
+
+#addButton:hover{
+
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  position: fixed;
+  height: 5%;
+  width: 100vw;
+  background-color: gray;
+  text-align: inherit;
+
+
 }
